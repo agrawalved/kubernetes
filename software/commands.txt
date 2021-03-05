@@ -1,0 +1,3 @@
+#Install xclip for copying to clipboard
+sudo apt-get install xclip
+

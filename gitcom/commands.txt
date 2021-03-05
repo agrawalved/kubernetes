@@ -1,0 +1,13 @@
+#Setup SSH Key for GitHub
+#--------------------------------------------
+
+#Generate ssh key pair 
+ssh-keygen -t ed25519 -C "agrawal.ved@gmail.com"
+
+#Adding SSH key to SSH Agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+#copy git pub file
+cp ~/.ssh/id_ed25519.pub ~/kubernetes/gitcom/.
+
