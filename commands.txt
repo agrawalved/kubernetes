@@ -1,0 +1,17 @@
+Connect to kubernetes cluster:
+gcloud container clusters get-credentials cluster-test --zone us-central1-c --project methodical-path-285010
+
+Get All pods in kube-system namespace: 
+kubectl get pods --namespace=kube-system
+test
+Define namespace YAML:
+kubectl create -f namespace-dev.yml
+
+Define pod YAML
+kubectl create -f pod-definition.yml
+Switch Namespace to Dev:
+kubectl config set-context $(kubectl config current-context)  --namespace=dev
+
+Set Quota:
+kubectl create -f compte-quota.yaml
+
