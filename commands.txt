@@ -52,3 +52,9 @@ kubectl run redis --image=redis --dry-run=client -o yaml > pod-def_dry-run.yml
 
 kubectl get pod <pod-name> -o yaml > pod-definition.yaml
 
+ #command to create replicasets
+kubectl create -f dev/cluster1/replicatesets/replicaset-definition.yml
+
+#Command to get replicasets in wide format
+kubectl get replicasets -o wide
+
