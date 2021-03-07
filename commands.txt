@@ -77,3 +77,14 @@ kubectl apply -f  deployment-definition.yml
 
 #Deployment: Command to directly create deployment specifying image
 kubectl create deployment <deployment name> --image=<image-name> --replicas=<replica number> 
+
+#Formatting Output with kubectl
+#kubectl [command] [TYPE] [NAME] -o <output_format>
+#-o json Output a JSON formatted API object.
+#-o name Print only the resource name and nothing else.
+#-o wide Output in the plain-text format with any additional information.
+#-o yaml Output a YAML formatted API object.
+
+
+
+
