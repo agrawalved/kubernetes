@@ -48,3 +48,7 @@ kubectl delete pods webapp
 #Create yml by dry-run command option
 kubectl run redis --image=redis --dry-run=client -o yaml > pod-def_dry-run.yml
 
+#extract the definition to a file using the below command:
+
+kubectl get pod <pod-name> -o yaml > pod-definition.yaml
+
