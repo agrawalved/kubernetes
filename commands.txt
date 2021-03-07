@@ -49,12 +49,26 @@ kubectl delete pods webapp
 kubectl run redis --image=redis --dry-run=client -o yaml > pod-def_dry-run.yml
 
 #extract the definition to a file using the below command:
-
 kubectl get pod <pod-name> -o yaml > pod-definition.yaml
 
- #command to create replicasets
+#Replicasets: Command to create
 kubectl create -f dev/cluster1/replicatesets/replicaset-definition.yml
 
 #Command to get replicasets in wide format
 kubectl get replicasets -o wide
+
+#Replicasets: Command to describe  
+kubectl describe replicasets  myapp-replicaset
+
+#Replicasets: Command to delete  -- also deletes underlying PODs
+kubectl delete replicasets  myapp-replicaset
+
+#Replicasets: Command to scale - first update YAML and then run below  
+kubectl replace -f  replicaset-definition.yml
+
+#Replicasets: Command to scale - with type name parameter  
+kubectl scale --replicas=6 replicaset myapp-replicaset
+
+#Replicasets: Command to scale - with reference of yaml
+kubectl scale --replicas=6 replicaset-definition.yml
 
