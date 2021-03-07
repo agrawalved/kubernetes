@@ -1,0 +1,15 @@
+##Lecture 12
+#Create a pod
+kubectl create -f /home/agrawal_ved/kubernetes/dev/cluster1/pods/pod-definition.yml
+
+sleep 5
+
+echo "Display all pods: kubectl get pods" 
+kubectl get pods
+
+echo "******************************************"
+
+echo "Details about a pod : kubectl describe pod myapp-pod" 
+kubectl describe pod myapp-pod
+
+

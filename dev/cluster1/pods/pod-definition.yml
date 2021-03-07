@@ -3,7 +3,6 @@ kind: Pod
 
 metadata:
         name: myapp-pod
-        namespace: dev
         labels:
                 app: myapp
                 type: front-end
