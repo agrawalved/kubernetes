@@ -86,5 +86,26 @@ kubectl create deployment <deployment name> --image=<image-name> --replicas=<rep
 #-o yaml Output a YAML formatted API object.
 
 
+#Namespace: get objects in a namespace
+kubectl get all --namespace=kube-system
+kubectl get -n kube-system pods
 
+#Namespace: Get namespace shortcut ns with no-headers
+kubectl get ns --no-headers
+
+#Namespace: create pod in a defined namespace
+kubectl create -f pod-definition.yml --namespace=dev
+kubectl run redis --image=redis -n dev
+
+#Namespace: create namespace
+kubectl create namespace dev
+
+#Namespace: switch to namespace
+kubectl config set-context $(kubectl config current-context) --namespace=dev
+
+#Namespace: View pods in all namespaces
+kubectl get pods --all-namespace
+
+#32. --dry-run=client option: This will not create the resource, instead, tell you whether the resource can be created and if your command is right.
+#    -o yaml: This will output the resource definition in YAML format on the screen.
 
