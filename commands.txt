@@ -64,11 +64,16 @@ kubectl describe replicasets  myapp-replicaset
 kubectl delete replicasets  myapp-replicaset
 
 #Replicasets: Command to scale - first update YAML and then run below  
-kubectl replace -f  replicaset-definition.yml
+kubectl replace -f  dev/cluster1/replicatesets/replicaset-definition.yml
 
 #Replicasets: Command to scale - with type name parameter  
 kubectl scale --replicas=6 replicaset myapp-replicaset
 
 #Replicasets: Command to scale - with reference of yaml
-kubectl scale --replicas=6 replicaset-definition.yml
+kubectl scale --replicas=6 -f dev/cluster1/replicatesets/replicaset-definition.yml
 
+#Deployment: Command to create using apply
+kubectl apply -f  deployment-definition.yml
+
+#Deployment: Command to directly create deployment specifying image
+kubectl create deployment <deployment name> --image=<image-name> --replicas=<replica number> 
