@@ -134,3 +134,24 @@ kubectl create configmap app-config --from-file=app-config.properties
 
 
 
+#ConfigMaps: Declarative : Create : Example
+#cat > config-map.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config-prod
+data:
+  APP_COLOR: blue
+  APP_MODE: prod
+
+kubectl create -f config-map.yaml
+
+#ConfigMaps: Get list of configmaps
+kubectl get cm -o wide
+kubectl get configmaps
+
+#ConfigMaps: Describe configmap - app-config-prod
+kubectl describe configmaps app-config-prod
+
+
+
