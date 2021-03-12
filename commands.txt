@@ -109,3 +109,28 @@ kubectl get pods --all-namespace
 #32. --dry-run=client option: This will not create the resource, instead, tell you whether the resource can be created and if your command is right.
 #    -o yaml: This will output the resource definition in YAML format on the screen.
 
+#Pod: command to create pod with label and image options, check with dry-run and generate yaml
+kubectl run redis --image=redi:alpine -l tier=db --dry-run=client -o yaml
+
+
+#Create a deployment named webapp using the image kodekloud/webapp-color with 3 replicas
+kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3 --dry-run=client -o yaml
+
+#Create a new pod called custom-nginx using the nginx image and expose it on container port 8080
+kubectl run custom-nginx --image=nginx --port=8080
+
+
+#ConfigMaps: Imperative : Create : Syntax
+kubectl create configmap <config-name> --from-literal=<key>=<value>
+
+#ConfigMaps: Imperative : Create : example
+kubectl create configmap app-config --from-literal=APP_COLOR=blue
+
+#ConfigMaps: Imperative : Create from file : Syntax
+kubectl create configmap <config-name> --from-file=<path-to-file>
+
+#ConfigMaps: Imperative : Create from file : Example
+kubectl create configmap app-config --from-file=app-config.properties
+
+
+
