@@ -158,3 +158,45 @@ kubectl describe configmaps app-config-prod
 #Utility: Command to get information of usage of any object	  
 kubectl explain pods --recursive | grep envFrom
 
+#Create a service redis-service to expose the redis application within the cluster on port 6379
+kubectl expose pod redis --port=6379 --name redis-service
+
+
+#Secrets: Imperative : Create : Syntax
+kubectl create secret generic <secret-name> --from-literal=<key>=<value>
+
+#Secrets: Imperative : Create : example
+kubectl create secret generic app-secret--from-literal=DB_Host=mysql
+
+#Secrets: Imperative : Create from file : Syntax
+kubectl create secret generic <secret-name> --from-file=<path-to-file>
+
+#Secrets: Imperative : Create from file : Example
+kubectl create secret generic app-secret--from-file=app-secret.properties
+
+#Utility: Command to convert plain text to encoded format
+echo -n 'mysql' | base64
+
+
+#Secrets: Declarative : Create : Example
+#mkdir -p /home/agrawal_ved/kubernetes/dev/cluster1/secret
+#cat > /home/agrawal_ved/kubernetes/dev/cluster1/secret/secret-data.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secret
+data:
+  DB_Host: bXlzcWw=
+  DB_User: cm9vdA==
+  DB_password: cGFzd3Jk
+
+kubectl create -f /home/agrawal_ved/kubernetes/dev/cluster1/secret/secret-data.yaml
+
+#Secrets: Get list of Secrets
+kubectl get secrets -o wide
+kubectl get secrets
+
+#Secrets: Describe secrets - app-secret
+kubectl describe secrets app-secret
+
+
