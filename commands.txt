@@ -177,6 +177,8 @@ kubectl create secret generic app-secret--from-file=app-secret.properties
 #Utility: Command to convert plain text to encoded format
 echo -n 'mysql' | base64
 
+#Utility: Command to convert encoded to plain text
+echo -n 'bXlzcWw=' | base64 --decode
 
 #Secrets: Declarative : Create : Example
 #mkdir -p /home/agrawal_ved/kubernetes/dev/cluster1/secret
