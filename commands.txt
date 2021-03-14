@@ -1,34 +1,32 @@
-#Connect to kubernetes cluster:
+#Utility: Connect to kubernetes cluster:
 gcloud container clusters get-credentials cluster-test --zone us-central1-c --project methodical-path-285010
 
-#Get All pods in kube-system namespace: 
+#Pod: Get All pods in kube-system namespace: 
 kubectl get pods --namespace=kube-system
 
-#Define namespace YAML:
+#Namespace: Define namespace YAML:
 kubectl create -f namespace-dev.yml
 
-#Define pod YAML
+#Pod: Define pod YAML
 kubectl create -f pod-definition.yml
 #Switch Namespace to Dev:
 kubectl config set-context $(kubectl config current-context)  --namespace=dev
 
-#Set Quota:
+#Quota: Set Quota:
 kubectl create -f compte-quota.yaml
 
-#create a pod from image
+#Pod: create a pod from image
 kubectl run nginx --image nginx
 ##Lecture 12
 #Create a pod
 kubectl create -f /home/agrawal_ved/kubernetes/dev/cluster1/pods/pod-definition.yml
 
-sleep 5
 
-echo "Display all pods: kubectl get pods" 
+#Pod: Display all pods: kubectl get pods
 kubectl get pods
 
-echo "******************************************"
 
-echo "Details about a pod : kubectl describe pod myapp-pod" 
+#Pod: Details about a pod : kubectl describe pod myapp-pod
 kubectl describe pod myapp-pod
 
 
@@ -43,18 +41,20 @@ kubectl get pod my-pod -o yaml                # Get a pod's YAML
 # Describe commands with verbose output
 kubectl describe nodes my-node
 kubectl describe pods my-pod
-#Command to delete pod
+
+#Pod: Command to delete pod
 kubectl delete pods webapp
-#Create yml by dry-run command option
+
+#Utility: Create yml by dry-run command option
 kubectl run redis --image=redis --dry-run=client -o yaml > pod-def_dry-run.yml
 
-#extract the definition to a file using the below command:
+#Utility: extract the definition to a file using the below command:
 kubectl get pod <pod-name> -o yaml > pod-definition.yaml
 
 #Replicasets: Command to create
 kubectl create -f dev/cluster1/replicatesets/replicaset-definition.yml
 
-#Command to get replicasets in wide format
+#Replicasets: Command to get replicasets in wide format
 kubectl get replicasets -o wide
 
 #Replicasets: Command to describe  
