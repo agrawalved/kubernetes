@@ -202,3 +202,24 @@ kubectl get secrets
 kubectl describe secrets app-secret
 
 
+#ENV: update PATH to use etcd etcdctl
+export PATH=$PATH:/tmp/etcd-download-test/
+
+
+#ETCD: start a local etcd server
+/tmp/etcd-download-test/etcd
+
+#ETCD:  write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+
+#Install: Install locate package for Linux
+sudo apt-get install mlocate
+
+##Install: Update locate database
+sudo updatedb
+
+#ETCD: Check version of etcd and etcdctl
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+
