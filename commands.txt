@@ -260,7 +260,7 @@ kubectl set image deployment nginx nginx=nginx:1.18
 # Deployment: Create Deployment from image
 kubectl create -f nginx.yaml
 
-# Deployment: Replace Deployment from image
+# Deployment: Replace a existing Deployment from new image
 kubectl replace -f nginx.yaml
 
 # Deployment: Delete Deployment from image
