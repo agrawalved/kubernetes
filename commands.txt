@@ -223,3 +223,17 @@ sudo updatedb
 /tmp/etcd-download-test/etcd --version
 /tmp/etcd-download-test/etcdctl version
 
+
+#Utility: Run a command inside a pod : Syntax
+kubectl exec <pod-name> -n <namespace> <command>
+
+
+
+#api-server: Get configuration of kube-apiserver.yaml - kubeadm
+cat /etc/kubernetes/manifests/kube-apiserver.yaml
+
+#Service: Imperative: Create service with port definitions
+kubectl expose deployment simple-webapp-deployment --name=webapp-service --target-port=8080 --type=NodePort --port=8080 --dry-run=client -o yaml > svc.yaml
+
+kubetcl apply -f svc.yaml
+
