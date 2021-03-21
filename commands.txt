@@ -237,3 +237,35 @@ kubectl expose deployment simple-webapp-deployment --name=webapp-service --targe
 
 kubetcl apply -f svc.yaml
 
+
+###Imperative Commands #####
+# Pod: Create Pod from Image
+kubectl run --image=nginx nginx
+
+# Deployment: Create Deployment  from Image
+kubectl create deployment --image=nginx nginx
+
+# Deployment: Expose Deployment/Pod to port 
+kubectl expose deployment --image=nginx nginx
+
+# Deployment: Edit Deployment 
+kubectl edit deployment nginx
+
+# Deployment: Scale Deployment to defined replicas
+kubectl scale deployment nginx --replicas=5
+
+# Deployment: Update image in Deployment 
+kubectl set image deployment nginx nginx=nginx:1.18
+
+# Deployment: Create Deployment from image
+kubectl create -f nginx.yaml
+
+# Deployment: Replace Deployment from image
+kubectl replace -f nginx.yaml
+
+# Deployment: Delete Deployment from image
+kubectl delete -f nginx.yaml
+
+##########################################################
+
+
